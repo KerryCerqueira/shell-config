@@ -41,6 +41,15 @@ HISTSIZE=1000
 SAVEHIST=10000
 unsetopt beep
 bindkey -v
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+alias yazi='y'
 alias ll='eza --colour=always --icons=always --classify=always -l -T --level=1'
 alias lt='eza --colour=always --icons=always --classify=always -l -T --level=2'
 alias ltt='eza --colour=always --icons=always --classify=always -l -T --level=3'
