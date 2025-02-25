@@ -50,10 +50,40 @@ function y() {
 	rm -f -- "$tmp"
 }
 alias yazi='y'
-alias ll='eza --colour=always --icons=always --classify=always -l -T --level=1'
-alias lt='eza --colour=always --icons=always --classify=always -l -T --level=2'
-alias ltt='eza --colour=always --icons=always --classify=always -l -T --level=3'
-alias lT='eza --colour=always --icons=always --classify=always -l -T'
+alias moarr='moar --quit-if-one-screen --no-clear-on-exit --no-statusbar'
+alias ls='eza\
+	--group-directories-first\
+	--git-repos\
+	--git\
+	--header\
+	--no-permissions\
+	--no-user\
+	--colour-scale\
+	--mounts'
+alias ll='ls --colour=always --icons=always --long | moarr'
+alias lll='eza\
+	--group-directories-first\
+	--git-repos\
+	--git\
+	--header\
+	--colour-scale\
+	--modified\
+	--created\
+	--long\
+	--color-scale\
+	--changed\
+	--header\
+	--group\
+	--colour=always\
+	--icons=always\
+	--long\
+	| moarr'
+alias lt='ls --colour=always --icons=always --tree --level=2 | moarr'
+alias ltt='ls --colour=always --icons=always --tree --level=3 | moarr'
+alias lT='ls --colour=always --icons=always --tree --total-size | moarr'
+alias llt='ls --colour=always --icons=always --long --tree --level=2 | moarr'
+alias lltt='ls --colour=always --icons=always --long --tree --level=3 | moarr'
+alias llT='ls --colour=always --icons=always --long --tree | moarr'
 alias top='btop'
 alias cat='bat'
 alias diff='batdiff'
