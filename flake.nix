@@ -5,7 +5,7 @@
 	};
 	outputs = { ... }: {
 		homeManagerModules = {
-			shellConfig = { pkgs, flakeInputs, ... }:
+			config = { pkgs, flakeInputs, ... }:
 
 				{
 					home.packages = with pkgs; [
