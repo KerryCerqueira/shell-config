@@ -28,15 +28,15 @@
 					];
 					xdg.configFile = {
 						"zsh/conf.d/" = {
-							source = .src/zsh/conf.d;
+							source = ./src/zsh/conf.d;
 							recursive = true;
 						};
 						"fish/conf.d/" = {
-							source = .src/fish/conf.d;
+							source = ./src/fish/conf.d;
 							recursive = true;
 						};
 						"fish/functions/" = {
-							source = .src/fish/functions;
+							source = ./src/fish/functions;
 							recursive = true;
 						};
 						"bat/" = {
