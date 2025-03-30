@@ -4,7 +4,7 @@
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 	};
 	outputs = {...}: {
-		homeManagerModules.default = { pkgs, ... }: {
+		homeManagerModules.shell-config = { pkgs, ... }: {
 			home.packages = with pkgs; [
 				any-nix-shell
 				git
@@ -63,16 +63,16 @@
 							zshPlugins;
 					};
 					initExtra =
-						# sh
-						''
-				  if [[ $(ps -o command= -p "$PPID" | awk '{print $1}') != 'fish' ]]
-				  then
-				  exec fish -l
-				  else
-				  any-nix-shell zsh | source /dev/stdin
-				  source "$ZDOTDIR"/conf.d/conf.zsh
-				  fi
-				  '';
+					# sh
+					''
+					if [[ $(ps -o command= -p "$PPID" | awk '{print $1}') != 'fish' ]]
+					then
+						exec fish -l
+					else
+						any-nix-shell zsh | source /dev/stdin
+						source "$ZDOTDIR"/conf.d/conf.zsh
+					fi
+					'';
 				};
 				fish = {
 					enable = true;
