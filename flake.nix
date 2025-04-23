@@ -5,6 +5,10 @@
 	};
 	outputs = {...}: {
 		homeManagerModules.shell-config = { pkgs, ... }: {
+			home.sessionVariables = {
+				PAGER = "${pkgs.moar}/bin/moar";
+				MOAR = "--statusbar=bold --no-linenumbers";
+			};
 			home.packages = with pkgs; [
 				any-nix-shell
 				git
@@ -38,10 +42,6 @@
 				};
 				"bat/" = {
 					source = ./src/bat;
-					recursive = true;
-				};
-				"kitty/" = {
-					source = ./src/kitty;
 					recursive = true;
 				};
 				"eza/" = {
