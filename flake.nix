@@ -62,7 +62,7 @@
 						in
 							zshPlugins;
 					};
-					initExtra =
+					initContent =
 					# sh
 					''
 					if [[ $(ps -o command= -p "$PPID" | awk '{print $1}') != 'fish' ]]
