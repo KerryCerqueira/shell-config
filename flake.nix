@@ -12,6 +12,8 @@
 			home.packages = with pkgs; [
 				any-nix-shell
 				git
+				gh
+				github-copilot-cli
 				btop
 				fzf
 				eza
