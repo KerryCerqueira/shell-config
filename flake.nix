@@ -12,8 +12,6 @@
 			home.packages = with pkgs; [
 				any-nix-shell
 				git
-				gh
-				github-copilot-cli
 				btop
 				fzf
 				eza
@@ -107,6 +105,13 @@
 					settings = builtins.fromJSON (
 						builtins.readFile ./src/oh-my-posh/config.json
 					);
+				};
+				gh = {
+					enable = true;
+					extensions = with pkgs; [
+						gh-dash
+						gh-copilot
+					];
 				};
 			};
 		};
