@@ -20,6 +20,7 @@
 				dust
 				fd
 				ripgrep
+				sshfs
 				bat
 				bat-extras.batman
 				bat-extras.batgrep
