@@ -21,6 +21,7 @@
 				fd
 				ripgrep
 				sshfs
+				tmux
 				bat
 				bat-extras.batman
 				bat-extras.batgrep
