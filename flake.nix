@@ -4,7 +4,7 @@
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 	};
 	outputs = {...}: {
-		homeManagerModules.shell-config = { pkgs, ... }: {
+		homeManagerModules.shell-config = { pkgs, config, ... }: {
 			home.sessionVariables = {
 				PAGER = "${pkgs.moar}/bin/moar";
 				MOAR = "--statusbar=bold --no-linenumbers";
@@ -52,9 +52,13 @@
 				};
 			};
 			programs = {
+				direnv = {
+					enable = true;
+					nix-direnv.enable = true;
+				};
 				zsh = {
 					enable = true;
-					dotDir = ".config/zsh";
+					dotDir = builtins.toPath "${config.xdg.configHome}/zsh";
 					antidote = {
 						enable = true;
 						plugins = let
